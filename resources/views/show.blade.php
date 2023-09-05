@@ -37,7 +37,11 @@
                 <tr class="">
                     <td>{{$sno}}</td>
                     <td>{{$item->title}}</td>
-                    <td><p class="text-truncate">{!!$item->desc!!}</p></td>
+                    <td>
+                        <div style="width : 300px">
+                            <p class="">{!! strip_tags(substr($item->desc,0, 50)) !!}...</p>
+                        </div>
+                    </td>
                     <td> 
                         <a target="_blank" href="{{ asset('images/' . $item->image) }}" width="100%"height="100%">
                         <img src="{{asset('images/'.$item->image)}}" alt="image" width="50px" height="50px">
@@ -45,7 +49,9 @@
                     </td>
                     <td><a class="btn btn-warning" href="{{url('/reading',['id'=>$item->id])}}">View</a> </td>
                     <td><a class="btn btn-primary" href="{{url('/edit',['id'=>$item->id])}}">Edit</a> </td>
-                    <td><a class="btn btn-danger" href="{{url('/delete',['id'=>$item->id])}}">Delete</a> </td>
+                    <td><a href="#" role="button"><button
+                        onclick="myFunction('{{ route('delete', ['id' => $item->id]) }}')"
+                        class="btn btn-danger">Delete</button></a></td>
                 </tr>
             </tbody>
 
@@ -55,11 +61,20 @@
             @endif
         </table>
     </div>
-    <div class="row">
+    <div class="pagination justify-content-center">
        {{$read->links()}}
     </div>
     
 </div>
+
+
+<script>
+    function myFunction(url) {
+        if (confirm("Are you sure to delete!") == true) {
+            window.location.href = url;
+        } else {}
+    }
+</script>
 
 
 
