@@ -36,7 +36,7 @@ class EditingController extends Controller
      $insert->desc = $request['desc'];
      $insert->user_id = auth()->user()->id;
      $insert->save();
-     return redirect('welcome')->with('message','New record created successfully');
+     return redirect('/')->with('message','New record created successfully');
 
     }
     //read
