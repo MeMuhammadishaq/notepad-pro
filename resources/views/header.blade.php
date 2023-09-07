@@ -29,7 +29,7 @@
                 <li class="nav-item">
                     <li class="nav-item">
                       @auth
-                        <a class="nav-link active" aria-current="page" href="{{url('/show')}}">Notes <i class="fa-solid fa-book"></i></a>
+                        <a class="nav-link active" aria-current="page" href="{{url('/ck')}}">Add <i class="fa-solid fa-plus"></i></i></a>
                        
                       </li>
                     <a class="nav-link active" aria-current="page" href="#">{{auth()->user()->name}} <i class="fa-solid fa-user"></i></a>

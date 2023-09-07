@@ -13,6 +13,7 @@ class EditingController extends Controller
     public function view(){
         return view('ck');
     }
+    //insert
     public function insert(Request $request){
         $request->validate( //validation
             [
@@ -35,9 +36,10 @@ class EditingController extends Controller
      $insert->desc = $request['desc'];
      $insert->user_id = auth()->user()->id;
      $insert->save();
-     return redirect('show')->with('message','New record created successfully');
+     return redirect('welcome')->with('message','New record created successfully');
 
     }
+    //read
     public function read(Request $request){
         $search = $request['search']?? "";
         if($search != ''){
@@ -45,9 +47,10 @@ class EditingController extends Controller
         }else{
             $read = Editing::where('user_id', auth()->user()->id)->paginate(6);
         }
-                return view('show',compact('read','search'));
+                return view('welcome',compact('read','search'));
         
     }
+    //edit
     public function edit($id){
         $edits = Editing::where('id', $id)->where('user_id', auth()->user()->id)->firstOrFail();
         return view('edit',compact('edits'));
@@ -63,13 +66,13 @@ class EditingController extends Controller
        $update->title =$request['title'];
        $update->desc =$request['desc'];
        $update->save();
-       return redirect('show')->with('message','record updated successfully');
+       return redirect('/')->with('message','record updated successfully');
     }
 
     public function delete($id){
         $delete = Editing::find($id);
         $delete->delete();
-        return redirect('show')->with('message','record deleted successfully');
+        return redirect('/')->with('message','record deleted successfully');
     }
     public function reading($id){
         $reading = Editing::where('id', $id)->where('user_id', auth()->user()->id)->firstOrFail();

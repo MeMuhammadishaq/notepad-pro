@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('auth');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->middleware('auth');
 Route::get('/header', function () {
     return view('header');
 });
@@ -26,7 +26,7 @@ Route::get('/header', function () {
 Route::get('/ck',[EditingController::class,'view'])->name('view')->middleware('auth');
 Route::post('/ck',[EditingController::class,'insert'])->name('insert')->middleware('auth');
 
-Route::get('/show',[EditingController::class,'read'])->name('show')->middleware('auth');
+Route::get('/',[EditingController::class,'read'])->name('welcome')->middleware('auth');
 
 Route::get('/edit/{id}',[EditingController::class,'edit'])->name('edit')->middleware('auth');
 Route::post('/edit/store',[EditingController::class,'update'])->name('update')->middleware('auth');

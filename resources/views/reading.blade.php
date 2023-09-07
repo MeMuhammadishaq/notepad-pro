@@ -3,7 +3,7 @@
 <br><br>
 <hr style="color:blue">
 <div class="container">
-    <a name="" id="" class="btn btn-primary" href="{{route('show')}}" role="button"><i class="fa-solid fa-backward"></i> Back</a>
+    <a name="" id="" class="btn btn-primary" href="{{route('welcome')}}" role="button"><i class="fa-solid fa-backward"></i> Back</a>
     <br><br>
     <ul class="text-center">
        <li><h2>{{$reading->title}}</h2></li>
