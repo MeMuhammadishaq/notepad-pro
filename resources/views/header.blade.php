@@ -67,7 +67,7 @@
              @auth
                
              
-            <form class="d-flex"action="{{url('show')}}"method="get">
+            <form class="d-flex"action="{{url('/')}}"method="get">
               @csrf
               <input class="form-control me-2" type="search"name="search" value="{{isset($search) ?$search: ''}}" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>

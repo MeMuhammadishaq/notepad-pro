@@ -46,6 +46,7 @@ class EditingController extends Controller
         $read = Editing::where('title','LIKE','%'.$search.'%')->where('user_id', auth()->user()->id)->paginate(6);
         }else{
             $read = Editing::where('user_id', auth()->user()->id)->paginate(6);
+            
         }
                 return view('welcome',compact('read','search'));
         
